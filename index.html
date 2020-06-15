@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Consultas a domicilio</title>
+<meta name="description" content="Ofrecemos un servicio de Urgencias y Atención Veterinaria a domicilio las 24hs. en Capital Federal y Zona Norte.">
+<meta name="author" content="Santiago Insúa">
+<meta name="keywords" content="veterinaria, veterinaria a domicilio, maría gabriela balzola, consultas, consultas a domicilio, atención domiciliaria, médica">
+<meta name="google-site-verification" content="QgVPLqlnG1m9lU3KOr2-LDm-4xujNaU-Zx4nv-PFG94">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<link rel="shortcut icon" type="image/ico" href="favicon.ico">
+<link href="style2.css" id="cssFile" rel="stylesheet" type="text/css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="15">
+<img src="imagenes/btn_arriba.svg" class="ir-arriba">
+<div id="root"></div>
+
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script src="src/index.js"></script>
+<script>
+var resizeTimer;
+$(window).on('resize', function(e) {
+
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(function() {
+
+setnavbar();
+
+}, 250);
+});
+
+function setnavbar() {
+    var wwidth = window.innerWidth;
+
+    if (wwidth < 768 && wwidth > 550) { // TABLET
+        document.getElementById("navbar").style.padding = "0.3em 0";
+        document.getElementById("navbarbrand").style.width = "7em";
+        
+  } else if (wwidth < 551) { // SMART
+        document.getElementById("navbar").style.padding = "0.2em 0";
+        document.getElementById("navbarbrand").style.width = "6em";
+      
+  } else if (wwidth > 766) { // DESKTOP
+      setnavbardesk();
+  }
+}
+
+function setnavbardesk() {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        document.getElementById("navbar").style.padding = "0.3em 0";
+        document.getElementById("navbarbrand").style.width = "7em";
+      } else {
+        document.getElementById("navbar").style.padding = "1em 0";
+        document.getElementById("navbarbrand").style.width = "10em";
+      }
+}
+    
+$(document).ready(function() {
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+    if (window.innerWidth > 766) {
+        setnavbardesk();
+    }
+}
+    setnavbar();
+
+$(".btn-send-form").click(function() {
+    var inpname, inpmail, inptext;
+    inpname = $("#cnContacto .inp-name").val();
+    inpmail = $("#cnContacto .inp-mail").val();
+    inptext = $("#cnContacto .inp-text").val();
+
+    Email.send({
+        Host : "smtp.gmail.com",
+        Username : "m.balzola@gmail.com",
+        Password : "gabriela28",
+        To : 'm.balzola@gmail.com',
+        From : inpmail,
+        Subject : "Nuevo mensaje de: " + inpname,
+        Body : inptext
+    }).then(
+        message => alert(message)
+    );
+});
+    
+$('.ir-arriba').click(function(){
+    $('body, html').animate({
+        scrollTop: '0px'
+    }, 300);
+});
+
+$(window).scroll(function(){
+    if( $(this).scrollTop() > 500 ){
+        $('.ir-arriba').fadeIn(200);
+    } else {
+        $('.ir-arriba').fadeOut(200);
+    }
+});
+});
+</script>
+</body>
+</html>
