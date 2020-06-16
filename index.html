@@ -81,25 +81,6 @@ function scrollFunction() {
     }
 }
     setnavbar();
-
-$(".btn-send-form").click(function() {
-    var inpname, inpmail, inptext;
-    inpname = $("#cnContacto .inp-name").val();
-    inpmail = $("#cnContacto .inp-mail").val();
-    inptext = $("#cnContacto .inp-text").val();
-
-    Email.send({
-        Host : "smtp.gmail.com",
-        Username : "m.balzola@gmail.com",
-        Password : "gabriela28",
-        To : 'm.balzola@gmail.com',
-        From : inpmail,
-        Subject : "Nuevo mensaje de: " + inpname,
-        Body : inptext
-    }).then(
-        message => alert(message)
-    );
-});
     
 $('.ir-arriba').click(function(){
     $('body, html').animate({
