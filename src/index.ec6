@@ -500,12 +500,47 @@ function ElimgTp(props) {
 
 class Contacto extends React.Component {
 
-  constructor(props) {
+    constructor(props) {
         super(props);
-  }
+        this.state = { 
+            feedback: '', 
+            name: 'Nombre', 
+            email: 'email@example.com' 
+        };
+        this.handleChangeName = this.handleChangeName.bind(this);
+        this.handleChangeMail = this.handleChangeMail.bind(this);
+        this.handleChangeArea = this.handleChangeArea.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
     
-render(){
+    handleChangeName(event) {
+        this.setState({ name: event.target.value });
+    }
+    handleChangeMail(event) {
+        this.setState({ email: event.target.value });
+    }
+    handleChangeArea(event) {
+        this.setState({ feedback: event.target.value });
+    }
 
+    handleSubmit (event) {
+        const templateId = 'template_sFXuicab';
+
+        this.sendFeedback(templateId, {message_html: this.state.feedback, from_name: this.state.name, reply_to: this.state.email});
+    }
+
+    sendFeedback (templateId, variables) {
+        window.emailjs.send(
+        'gmail', templateId,
+        variables
+        ).then(res => {
+            console.log('Email enviado correctamente!')
+        })
+        // Handle errors here however you like, or use a React error boundary
+        .catch(err => console.error('Error al enviar el mail: ', err))
+    }
+
+render(){
 return(
     <div>
         <div id="cnContacto">
@@ -533,37 +568,51 @@ return(
                 </ul>
             </div>
             <div className="col-md" id="cnForm">
-                <form method="POST">
+                <form className="form-contacto">
                     <div className="form-group row" id="formgroup">
                         <label htmlFor="name" class="col-md-2 col-form-label">Nombre: </label>
                         <div className="col-md-10">
-                            <input className="form-control inp-name" type="text" name="name" />
+                            <input className="form-control inp-name" 
+                            type="text" 
+                            name="name" 
+                            onChange={this.handleChangeName} />
                         </div>
                     </div>
                     <div className="form-group row" id="formgroup">
                         <label htmlFor="email" class="col-md-2 col-form-label">E-mail: </label>
                         <div className="col-md-10">
-                            <input type="email" className="form-control inp-mail" name="email" />
+                            <input type="email" 
+                                className="form-control inp-mail" 
+                                name="email" 
+                                onChange={this.handleChangeMail} />
                         </div>
                     </div>
                     <div className="form-group row" id="formgroup">
                         <label htmlFor="msg" class="col-md-2 col-form-label">Mensaje: </label>
                         <div className="col-md-10">
-                            <textarea className="form-control inp-text" rows="6" name="msg"></textarea>
+                            <textarea className="form-control inp-text" rows="6" 
+                                name="msg" 
+                                onChange={this.handleChangeArea}
+                                required
+                                value={this.state.feedback} />
                         </div>
                         <div className="col-md-2" id="frmcolbut"></div>
                         <div className="col-md-10" id="frmcolbut">
-                            <input className="btn btn-primary btn-send-form" type="submit" />
+                            <input className="btn btn-primary btn-send-form" 
+                                type="button" 
+                                value="Enviar" 
+                                onClick={this.handleSubmit} />
                         </div>
                     </div>
                 </form>
             </div>
         </div>
         </div>
+
         <div id="cnFooter">
             <div className="row">
             <div className="col-md">
-            <p>© Copyright 2020 Consultas a domicilio • Todos los derechos reservados • Diseño: <a href="http://dragonfly-studio.000webhostapp.com"><img src="./imagenes/Logo-web-white.png" /></a></p>
+            <p>© Copyright 2020 Consultas a domicilio • Todos los derechos reservados • Diseño: <a href="http://dragonflystudio.com.ar"><img src="./imagenes/Logo-web-white.png" /></a></p>
             </div>
             </div>
         </div>
