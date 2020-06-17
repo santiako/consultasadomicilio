@@ -22,7 +22,6 @@ import logoDF from './Assets/imagenes/Logo-web-white.png';
 
 
 function App() {
-
   return (
     <div className="container-fluid">
         <div id="cnBarraNav">
@@ -534,20 +533,23 @@ class Contacto extends React.Component {
     }
 
     handleSubmit (event) {
+        const serviceId = 'santi_gmail';
         const templateId = 'template_sFXuicab';
 
-        this.sendFeedback(templateId, {message_html: this.state.feedback, from_name: this.state.name, reply_to: this.state.email});
+        this.sendFeedback(serviceId, templateId, 
+            { message_html: this.state.feedback, from_name: this.state.name, 
+                reply_to: this.state.email, to_name: 'Santiago' });
     }
 
-    sendFeedback (templateId, variables) {
-        window.emailjs.send(
-        'gmail', templateId,
-        variables
-        ).then(res => {
-            console.log('Email enviado correctamente!')
-        })
-        // Handle errors here however you like, or use a React error boundary
-        .catch(err => console.error('Error al enviar el mail: ', err))
+    sendFeedback (serviceId, templateId, variables) {
+        window.emailjs.send(serviceId, templateId,
+            variables
+            ).then(res => {
+                console.log('Email enviado correctamente!');
+                // Limpiar input boxes y mostrar mensaje
+            })
+            // Handle errors here however you like, or use a React error boundary
+            .catch(err => console.error('Error al enviar el mail: ', err))
     }
 
 render(){
