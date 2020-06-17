@@ -1,37 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
-//import './App.css';
 import './style2.scss';
 
+import logo from './Assets/imagenes/logo.svg';
+import mascotas from './Assets/imagenes/mascotas.jpg';
+import gato1 from './Assets/imagenes/347.jpg';
+import perrogato from './Assets/imagenes/perro-y-gato.jpg';
+import btn0 from './Assets/imagenes/btn0.svg';
+import btn1 from './Assets/imagenes/btn1.svg';
+import perropel from './Assets/imagenes/756803-22.jpg';
+import perrocons from './Assets/imagenes/756802-11.jpg';
+import consultas from './Assets/imagenes/consultas.svg';
+import vacunacion from './Assets/imagenes/vacunacion.svg';
+import analisis from './Assets/imagenes/analisis.svg';
+import peluque from './Assets/imagenes/peluquerias.svg';
+import pensiones from './Assets/imagenes/pensiones.svg';
+import certificados from './Assets/imagenes/certificados.svg';
+import tito from './Assets/imagenes/Tito.jpg';
+import icn_what from './Assets/imagenes/icn_whatsapp.png';
+import icn_mail from './Assets/imagenes/icn_mail.png';
+import logoDF from './Assets/imagenes/Logo-web-white.png';
+
+
 function App() {
-  const imgpath = "./Assets/imagenes/";
 
   return (
     <div className="container-fluid">
-        
         <div id="cnBarraNav">
-            <Barranav imgpath={imgpath} />
+            <Barranav />
         </div>
         
         <div id="contenido">
             <div id="homeSlide">
-                <Carrousel imgpath={imgpath} />
+                <Carrousel />
             </div>
-
             <div id="promos">
-                <Promociones imgpath={imgpath} />
+                <Promociones />
             </div>
-
             <div id="servicios">
-                <Servicios imgpath={imgpath} />
+                <Servicios />
             </div>
-
             <div id="acerca">
-                <Acerca imgpath={imgpath} />
+                <Acerca />
             </div>
-
             <div id="contacto">
-                <Contacto imgpath={imgpath} />
+                <Contacto />
             </div>
         </div>
     </div>
@@ -43,7 +55,7 @@ function Barranav(props) {
     return(
     <nav className="navbar navbar-expand-md fixed-top bg-light navbar-light" id="navbar">
         <div className="logo">
-            <a className="navbar-brand" href="#" id="navbarbrand"><img src={props.imgpath + "logo.svg"} /></a>
+            <a className="navbar-brand" href="#" id="navbarbrand"><img src={logo} /></a>
         </div>
   <button className="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navb">
     <span className="navbar-toggler-icon"></span>
@@ -194,7 +206,7 @@ class Carrousel extends React.Component {
         //creo un array nuevo y lo seteo con el id
         var newarray = this.state.elactivo.map(x => false);
         newarray[e] = true;
-        this.setState({elactivo: newarray});
+        this.setState({ elactivo: newarray });
 
         //Reiniciar timer
         this.clearTimer();
@@ -202,7 +214,7 @@ class Carrousel extends React.Component {
     }
 
 render() {
-    const imgarr = ["mascotas.jpg", "347.jpg", "perro-y-gato.jpg"];
+    const imgarr = [mascotas, gato1, perrogato];
     const titarr = ["ATENCIÓN PROFESIONAL A DOMICILIO", 
                     "32 AÑOS DE EXPERIENCIA", 
                     "PENSIÓN DE MASCOTAS"];
@@ -213,12 +225,11 @@ render() {
     return(
         <div id="cnCarr">
         <ElemCarr
-            img={this.props.imgpath + imgarr[elact]}
+            img={imgarr[elact]}
             tit={titarr[elact]} 
             parr={parrarr[elact]} />
 
         <BotoneraCarr 
-            imgpath={this.props.imgpath}
             cbotones={this.state.elementos}
             botactivo={this.state.elactivo}
             onClickBut={(index) => this.hBclick(index)} />
@@ -258,7 +269,6 @@ render(){
         return(
         <BtnBotonera
             key={index}
-            imgpath={this.props.imgpath}
             bact={item}
             onButClick={() => this.props.onClickBut(index)} />
         );
@@ -281,8 +291,8 @@ class BtnBotonera extends React.Component {
 render(){
     return(
         <button className="btnbotonera" onClick={this.props.onButClick}>
-            <img src={this.props.imgpath + (this.props.bact ? 
-                'btn1.svg' : 'btn0.svg')} />
+            <img src={this.props.bact ? 
+                btn1 : btn0} />
         </button>
     );
 }
@@ -306,11 +316,11 @@ render(){
         <ElemPromos flipped={false}
             titulo="BAÑO Y PELUQUERÍA" 
             parrafo="La belleza de su mascota es nuestra prioridad. Ofrecemos descuentos en baños y peluquerías, comuníquese con nosotros y pida su turno." 
-            imgPath={this.props.imgpath + '756803-22.jpg'} />
+            imgPath={perropel} />
         <ElemPromos flipped={true}
             titulo="CONSULTA Y VACUNACIÓN" 
             parrafo="La salud de su mascota es nuestra prioridad. Ofrecemos descuentos en consultas a domicilio y vacunación, comuníquese con nosotros y pida un turno." 
-            imgPath={this.props.imgpath + '756802-11.jpg'} />
+            imgPath={perrocons} />
         </div>
     );
 }
@@ -405,29 +415,29 @@ return(
     </div>
     <div className="row" id="cnelemserv">
     <ElemServ
-        imgsrc={this.props.imgpath + "consultas.svg"}
+        imgsrc={consultas}
         titulo="CONSULTAS"
         parrafo="Realizamos consultas profesionales a domicilio en la comodidad de su hogar. En Capital Federal y Zona Norte." />
     <ElemServ
-        imgsrc={this.props.imgpath + "vacunacion.svg"}
+        imgsrc={vacunacion}
         titulo="VACUNACIÓN"
         parrafo="Cuidamos la salud de su mascota con las mejores vacunas disponibles en el mercado." />
     <ElemServ
-        imgsrc={this.props.imgpath + "analisis.svg"}
+        imgsrc={analisis}
         titulo="ANÁLISIS CLÍNICOS"
         parrafo="Realizamos análisis clínicos. Para estudios más especificos los derivamos a laboratorios especializados." />
     <ElemServ
-        imgsrc={this.props.imgpath + "peluquerias.svg"}
+        imgsrc={peluque}
         titulo="PELUQUERÍAS"
         parrafo="Mantener el pelaje de su mascota no solo es una cuestión estética sino también de salud.
 Ofrecemos baños, cortes de pelo y de uñas." />
 
     <ElemServ
-        imgsrc={this.props.imgpath + "pensiones.svg"}
+        imgsrc={pensiones}
         titulo="PENSIONES"
         parrafo="Cuidamos a su mascota dandole la seguridad y el cariño que se merece para que se sienta como en casa." />
     <ElemServ
-        imgsrc={this.props.imgpath + "certificados.svg"}
+        imgsrc={certificados}
         titulo="CERTIFICADOS"
         parrafo="Realizamos certificados para que su mascota viaje sin problemas." />
     </div>
@@ -465,7 +475,7 @@ return(
         </div>
         <div className="row" id="cnelimg">
         <ElimgTp
-            img={this.props.imgpath + "Tito.jpg"}
+            img={tito}
             tit="32 AÑOS AL SERVICIO DE SU MASCOTA" 
             parr="Cuidando la salud de su mascota con amor y dedicación, realizando consultas generales, urgencias, vacunaciones, operaciones, análisis clínicos, baños y peluquerías." />
         </div>
@@ -559,10 +569,10 @@ return(
                 <p><strong>DRA. MARÍA GABRIELA BALZOLA</strong></p>
                 <ul className="list-group list-group-flush">
                     <Dato 
-                        icnsrc={this.props.imgpath + "icn_whatsapp.png"}
+                        icnsrc={icn_what}
                         txt="11 3615-0796" />
                     <DatoLnk 
-                        icnsrc={this.props.imgpath + "icn_mail.png"}
+                        icnsrc={icn_mail}
                         href="mailto: m.balzola@gmail.com"
                         txtLnk="m.balzola@gmail.com" />
                 </ul>
@@ -612,7 +622,7 @@ return(
         <div id="cnFooter">
             <div className="row">
             <div className="col-md">
-            <p>© Copyright 2020 Consultas a domicilio • Todos los derechos reservados • Diseño: <a href="http://dragonflystudio.com.ar"><img src="./imagenes/Logo-web-white.png" /></a></p>
+            <p>© Copyright 2020 Consultas a domicilio • Todos los derechos reservados • Diseño: <a href="http://dragonflystudio.com.ar"><img src={logoDF} /></a></p>
             </div>
             </div>
         </div>
