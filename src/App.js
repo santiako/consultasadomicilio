@@ -512,9 +512,9 @@ class Contacto extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-            feedback: '', 
-            name: 'Nombre', 
-            email: 'email@example.com' 
+            name: '', 
+            email: '',
+            feedback: ''
         };
         this.handleChangeName = this.handleChangeName.bind(this);
         this.handleChangeMail = this.handleChangeMail.bind(this);
@@ -535,10 +535,22 @@ class Contacto extends React.Component {
     handleSubmit (event) {
         const serviceId = 'santi_gmail';
         const templateId = 'template_sFXuicab';
-
-        this.sendFeedback(serviceId, templateId, 
-            { message_html: this.state.feedback, from_name: this.state.name, 
-                reply_to: this.state.email, to_name: 'Santiago' });
+        // Validar datos
+        if (this.state.name !== '') {
+            if (this.state.email !== '') {
+                if (this.state.feedback !== '') {
+                    this.sendFeedback(serviceId, templateId, 
+                        { message_html: this.state.feedback, from_name: this.state.name, 
+                            reply_to: this.state.email, to_name: 'Santiago' });
+                } else {
+                    // Completar campo mensaje
+                }
+            } else {
+                // Completar campo email
+            }
+        } else {
+            // Completar campo nombre
+        }
     }
 
     sendFeedback (serviceId, templateId, variables) {
@@ -547,6 +559,9 @@ class Contacto extends React.Component {
             ).then(res => {
                 console.log('Email enviado correctamente!');
                 // Limpiar input boxes y mostrar mensaje
+                this.setState({ name: '' });
+                this.setState({ email: '' });
+                this.setState({ feedback: '' });
             })
             // Handle errors here however you like, or use a React error boundary
             .catch(err => console.error('Error al enviar el mail: ', err))
@@ -587,7 +602,9 @@ return(
                             <input className="form-control inp-name" 
                             type="text" 
                             name="name" 
-                            onChange={this.handleChangeName} />
+                            required
+                            onChange={this.handleChangeName}
+                            value={this.state.name} />
                         </div>
                     </div>
                     <div className="form-group row" id="formgroup">
@@ -595,8 +612,11 @@ return(
                         <div className="col-md-10">
                             <input type="email" 
                                 className="form-control inp-mail" 
-                                name="email" 
-                                onChange={this.handleChangeMail} />
+                                name="email"
+                                aria-describedby="emailHelp"
+                                required
+                                onChange={this.handleChangeMail}
+                                value={this.state.email} />
                         </div>
                     </div>
                     <div className="form-group row" id="formgroup">
@@ -611,7 +631,7 @@ return(
                         <div className="col-md-2" id="frmcolbut"></div>
                         <div className="col-md-10" id="frmcolbut">
                             <input className="btn btn-primary btn-send-form" 
-                                type="button" 
+                                type="submit" 
                                 value="Enviar" 
                                 onClick={this.handleSubmit} />
                         </div>
