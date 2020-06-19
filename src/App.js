@@ -484,7 +484,11 @@ class Contacto extends React.Component {
         this.state = { 
             name: '', 
             email: '',
-            feedback: ''
+            feedback: '',
+            lblstyle: {
+                display: 'none',
+                margin: '0 0 0 17px'
+            }
         };
         this.handleChangeName = this.handleChangeName.bind(this);
         this.handleChangeMail = this.handleChangeMail.bind(this);
@@ -503,7 +507,7 @@ class Contacto extends React.Component {
     }
 
     handleSubmit (event) {
-        const serviceId = 'santi_gmail';
+        const serviceId = 'gaby_gmail';
         const templateId = 'template_sFXuicab';
         var validMail = this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
         console.log(validMail);
@@ -513,16 +517,33 @@ class Contacto extends React.Component {
                 if (this.state.feedback !== '') {
                     this.sendFeedback(serviceId, templateId, 
                         { message_html: this.state.feedback, from_name: this.state.name, 
-                            reply_to: this.state.email, to_name: 'Santiago' });
+                            reply_to: this.state.email, from_mail: this.state.email, to_name: 'Gabriela' });
                 } else {
                     // Completar campo mensaje
-
+                    this.setState(prevState => ({
+                    lblstyle: {                  
+                            ...prevState.lblstyle,    
+                            display: 'none'      
+                        }
+                    }));
                 }
             } else {
                 // Completar campo email
+                this.setState(prevState => ({
+                lblstyle: {                  
+                        ...prevState.lblstyle,    
+                        display: 'none'      
+                    }
+                }));
             }
         } else {
             // Completar campo nombre
+            this.setState(prevState => ({
+            lblstyle: {                  
+                    ...prevState.lblstyle,    
+                    display: 'none'      
+                }
+            }));
         }
     }
 
@@ -535,6 +556,12 @@ class Contacto extends React.Component {
                 this.setState({ name: '' });
                 this.setState({ email: '' });
                 this.setState({ feedback: '' });
+                this.setState(prevState => ({
+                    lblstyle: {                  
+                        ...prevState.lblstyle,    
+                        display: 'inline-block'      
+                    }
+                }));
             })
             // Handle errors here however you like, or use a React error boundary
             .catch(err => console.error('Error al enviar el mail: ', err))
@@ -568,7 +595,7 @@ return(
                 </ul>
             </div>
             <div className="col-md" id="cnForm">
-                <form className="form-contacto">
+                <form className="form-contacto" id="form-contacto">
                     <div className="form-group row" id="formgroup">
                         <label htmlFor="name" class="col-md-2 col-form-label">Nombre: </label>
                         <div className="col-md-10">
@@ -604,9 +631,11 @@ return(
                         <div className="col-md-2" id="frmcolbut"></div>
                         <div className="col-md-10" id="frmcolbut">
                             <input className="btn btn-primary btn-send-form" 
-                                type="button" 
+                                type="submit" 
                                 value="Enviar" 
                                 onClick={this.handleSubmit} />
+                            <label htmlFor="msg" class="col-form-label" 
+                                style={this.state.lblstyle}>¡Mensaje enviado!</label>
                         </div>
                     </div>
                 </form>

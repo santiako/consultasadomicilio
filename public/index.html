@@ -34,6 +34,13 @@
     <div id="root"></div>
     
 <script>
+
+$(window).on('load', function(e) {
+  document.getElementById("form-contacto").onsubmit = function() { 
+    return false;
+  };
+});
+
 var resizeTimer;
 $(window).on('resize', function(e) {
 
