@@ -93,11 +93,11 @@ function Barranav(props) {
 
 class NavbarTgl extends React.Component {
     
-    constructor(props) {
-        super(props);
-        this.state = { width: 0, height: 0 };
-        this.updateWinDim = this.updateWinDim.bind(this);
-    }
+constructor(props) {
+    super(props);
+    this.state = { width: 0, height: 0 };
+    this.updateWinDim = this.updateWinDim.bind(this);
+}
 
 componentDidMount() {
   this.updateWinDim();
@@ -257,72 +257,54 @@ function ElemCarr(props) {
     );
 }
 
-class BotoneraCarr extends React.Component {
-
-    // constructor(props) {
-    //     super(props);
-    // }
+function BotoneraCarr(props) {
     
-render(){
-    const botones = this.props.botactivo.map((item, index) => {
-        return(
-        <BtnBotonera
-            key={index}
-            bact={item}
-            onButClick={() => this.props.onClickBut(index)} />
-        );
-        });
-    
+const botones = props.botactivo.map((item, index) => {
     return(
-        <div id="cnbotonera">
-            {botones}
-        </div>
+    <BtnBotonera
+        key={index}
+        bact={item}
+        onButClick={() => props.onClickBut(index)} />
     );
-}
+    });
+
+return(
+    <div id="cnbotonera">
+        {botones}
+    </div>
+);
 }
 
-class BtnBotonera extends React.Component {
+function BtnBotonera(props) {
     
-    // constructor(props) {
-    //     super(props);
-    // }
-    
-render(){
-    return(
-        <button className="btnbotonera" onClick={this.props.onButClick}>
-            <img src={this.props.bact ? 
-                btn1 : btn0} alt="Botón" />
-        </button>
-    );
-}
+return(
+    <button className="btnbotonera" onClick={props.onButClick}>
+        <img src={props.bact ? 
+            btn1 : btn0} alt="Botón" />
+    </button>
+);
 }
 
 
-class Promociones extends React.Component {
+function Promociones(props) {
 
-  // constructor(props) {
-  //       super(props);
-  // }
-
-render(){
-    return(
-      <div id="cnPromos">
-      <div className="row">
-        <div className="col-md" id="titulo">
-            <h1>PROMOCIONES</h1>
-        </div>
-      </div>
-        <ElemPromos flipped={false}
-            titulo="BAÑO Y PELUQUERÍA" 
-            parrafo="La belleza de su mascota es nuestra prioridad. Ofrecemos descuentos en baños y peluquerías, comuníquese con nosotros y pida su turno." 
-            imgPath={perropel} />
-        <ElemPromos flipped={true}
-            titulo="CONSULTA Y VACUNACIÓN" 
-            parrafo="La salud de su mascota es nuestra prioridad. Ofrecemos descuentos en consultas a domicilio y vacunación, comuníquese con nosotros y pida un turno." 
-            imgPath={perrocons} />
-        </div>
-    );
-}
+return(
+  <div id="cnPromos">
+  <div className="row">
+    <div className="col-md" id="titulo">
+        <h1>PROMOCIONES</h1>
+    </div>
+  </div>
+    <ElemPromos flipped={false}
+        titulo="BAÑO Y PELUQUERÍA" 
+        parrafo="La belleza de su mascota es nuestra prioridad. Ofrecemos descuentos en baños y peluquerías, comuníquese con nosotros y pida su turno." 
+        imgPath={perropel} />
+    <ElemPromos flipped={true}
+        titulo="CONSULTA Y VACUNACIÓN" 
+        parrafo="La salud de su mascota es nuestra prioridad. Ofrecemos descuentos en consultas a domicilio y vacunación, comuníquese con nosotros y pida un turno." 
+        imgPath={perrocons} />
+    </div>
+);
 }
 
 class ElemPromos extends React.Component {
@@ -398,13 +380,8 @@ render() {
 }
 
 
-class Servicios extends React.Component {
+function Servicios(props) {
 
-  // constructor(props) {
-  //       super(props);
-  // }
-
-render() {
 return(
     <div id="cnServicios">
     <div className="row">
@@ -443,7 +420,6 @@ Ofrecemos baños, cortes de pelo y de uñas." />
     </div>
 );
 }
-}
 
 function ElemServ(props) {
     return(
@@ -458,13 +434,8 @@ function ElemServ(props) {
 }
 
 
-class Acerca extends React.Component {
+function Acerca(props) {
 
-  // constructor(props) {
-  //       super(props);
-  // }
-
-render(){
 return(
     <div id="cnAcerca">
         <div className="row">
@@ -487,7 +458,6 @@ return(
         </div>
     </div>
 );
-}
 }
 
 function ElimgTp(props) {
