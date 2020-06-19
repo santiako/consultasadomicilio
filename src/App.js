@@ -54,7 +54,7 @@ function Barranav(props) {
     return(
     <nav className="navbar navbar-expand-md fixed-top bg-light navbar-light" id="navbar">
         <div className="logo">
-            <a className="navbar-brand" href="#" id="navbarbrand"><img src={logo} /></a>
+            <a className="navbar-brand" href="#" id="navbarbrand"><img src={logo} alt="Consultas a domicilio" /></a>
         </div>
   <button className="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navb">
     <span className="navbar-toggler-icon"></span>
@@ -94,10 +94,10 @@ function Barranav(props) {
 class NavbarTgl extends React.Component {
     
     constructor(props) {
-    super(props);
-    this.state = { width: 0, height: 0 };
-    this.updateWinDim = this.updateWinDim.bind(this);
-}
+        super(props);
+        this.state = { width: 0, height: 0 };
+        this.updateWinDim = this.updateWinDim.bind(this);
+    }
 
 componentDidMount() {
   this.updateWinDim();
@@ -138,16 +138,16 @@ render() {
 
 function RndNavbar(props) {
 
-if (props.disp == 0) { // DESKTOP
+if (props.disp === 0) { // DESKTOP
     return <a className="nav-link" href={props.href}>{props.text}</a>;
 } else { // TABLET
-if (props.index == 1) { //primer item
+if (props.index === 1) { //primer item
     return <span className="navbar-toggler" data-toggle="collapse" data-target="#navb"><a className="nav-link" id="pr" href={props.href}>{props.text}</a></span>;
         
-} else if (props.index == 0) { //item intermedio
+} else if (props.index === 0) { //item intermedio
     return <span className="navbar-toggler" data-toggle="collapse" data-target="#navb"><a className="nav-link" href={props.href}>{props.text}</a></span>;
     
-} else if (props.index == 2) { //último item
+} else if (props.index === 2) { //último item
     return <span className="navbar-toggler" data-toggle="collapse" data-target="#navb"><a className="nav-link" id="ul" href={props.href}>{props.text}</a></span>;
 }
 }
@@ -243,7 +243,7 @@ function ElemCarr(props) {
             <div className="row" id="rowcarr">
                 <div className="col-md" id="imgcarr">
                     <div className="imgElim">
-                        <img src={props.img} />
+                        <img src={props.img} alt="Atención profesional a domicilio" />
                     </div>
                 </div>
                 <div className="col-md" id="coltitparr">
@@ -259,9 +259,9 @@ function ElemCarr(props) {
 
 class BotoneraCarr extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
     
 render(){
     const botones = this.props.botactivo.map((item, index) => {
@@ -283,15 +283,15 @@ render(){
 
 class BtnBotonera extends React.Component {
     
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
     
 render(){
     return(
         <button className="btnbotonera" onClick={this.props.onButClick}>
             <img src={this.props.bact ? 
-                btn1 : btn0} />
+                btn1 : btn0} alt="Botón" />
         </button>
     );
 }
@@ -300,9 +300,9 @@ render(){
 
 class Promociones extends React.Component {
 
-  constructor(props) {
-        super(props);
-  }
+  // constructor(props) {
+  //       super(props);
+  // }
 
 render(){
     return(
@@ -367,7 +367,7 @@ render() {
             </div>
             <div className="col-md" id="imgpromos">
                 <div className="imgPromos">
-                    <img src={this.props.imgPath} />
+                    <img src={this.props.imgPath} alt="Promociones" />
                 </div>
             </div>
         </div>
@@ -377,7 +377,7 @@ render() {
         <div className="row" id="elempromos">
             <div className="col-md" id="imgpromos">
                 <div className="imgPromos">
-                    <img src={this.props.imgPath} />
+                    <img src={this.props.imgPath} alt="Atención profesional a domicilio" />
                 </div>
             </div>
             <div className="col-md" id="titparbot">
@@ -400,9 +400,9 @@ render() {
 
 class Servicios extends React.Component {
 
-  constructor(props) {
-        super(props);
-  }
+  // constructor(props) {
+  //       super(props);
+  // }
 
 render() {
 return(
@@ -449,7 +449,7 @@ function ElemServ(props) {
     return(
         <div className="col-md" id="elemserv">
             <div className="elemImg">
-                <img src={props.imgsrc} />
+                <img src={props.imgsrc} alt="Items" />
             </div>
             <h3>{props.titulo}</h3>
             <p>{props.parrafo}</p>
@@ -460,9 +460,9 @@ function ElemServ(props) {
 
 class Acerca extends React.Component {
 
-  constructor(props) {
-        super(props);
-  }
+  // constructor(props) {
+  //       super(props);
+  // }
 
 render(){
 return(
@@ -495,7 +495,7 @@ function ElimgTp(props) {
         <div className="row" id="rowelem">
             <div className="col-md" id="imgelim">
                 <div className="imgElim">
-                    <img src={props.img} />
+                    <img src={props.img} alt="Imágen" />
                 </div>
             </div>
             <div className="col-md" id="titpar">
@@ -535,15 +535,18 @@ class Contacto extends React.Component {
     handleSubmit (event) {
         const serviceId = 'santi_gmail';
         const templateId = 'template_sFXuicab';
+        var validMail = this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+        console.log(validMail);
         // Validar datos
         if (this.state.name !== '') {
-            if (this.state.email !== '') {
+            if (this.state.email !== '' && validMail) {
                 if (this.state.feedback !== '') {
                     this.sendFeedback(serviceId, templateId, 
                         { message_html: this.state.feedback, from_name: this.state.name, 
                             reply_to: this.state.email, to_name: 'Santiago' });
                 } else {
                     // Completar campo mensaje
+
                 }
             } else {
                 // Completar campo email
@@ -631,7 +634,7 @@ return(
                         <div className="col-md-2" id="frmcolbut"></div>
                         <div className="col-md-10" id="frmcolbut">
                             <input className="btn btn-primary btn-send-form" 
-                                type="submit" 
+                                type="button" 
                                 value="Enviar" 
                                 onClick={this.handleSubmit} />
                         </div>
@@ -644,7 +647,7 @@ return(
         <div id="cnFooter">
             <div className="row">
             <div className="col-md">
-            <p>© Copyright 2020 Consultas a domicilio • Todos los derechos reservados • Diseño: <a href="http://dragonflystudio.com.ar"><img src={logoDF} /></a></p>
+            <p>© Copyright 2020 Consultas a domicilio • Todos los derechos reservados • Diseño: <a href="http://dragonflystudio.com.ar"><img src={logoDF} alt="Dragonfly Studio" /></a></p>
             </div>
             </div>
         </div>
@@ -658,7 +661,7 @@ function Dato(props) {
         <div className="row" id="cnDato">
             <div className="col-1">
                 <div className="imgDato">
-                    <img src={props.icnsrc} />
+                    <img src={props.icnsrc} alt="Icon" />
                 </div>
             </div>
             <div className="col-11">
@@ -673,7 +676,7 @@ function DatoLnk(props) {
         <div className="row" id="cnDato">
             <div className="col-1">
                 <div className="imgDato">
-                    <img src={props.icnsrc} />
+                    <img src={props.icnsrc} alt="Icon" />
                 </div>
             </div>
             <div className="col-11">
