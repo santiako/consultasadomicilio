@@ -5,35 +5,31 @@ $violClaro: #C7B5E2;
 $violIntermed: #A07DC9;
 $grisOscuro: #262626;
 
-
 @font-face {
-    font-family: "CenturyGothic";
-    src: url(Assets/fonts/CenturyGothicStd.otf);
+	font-family: "CenturyGothic";
+	src: url(Assets/fonts/CenturyGothicStd.otf);
 }
 $Centgothic: "CenturyGothic", "Century Gothic", sans-serif;
 
 @font-face {
-    font-family: "CenturyGothic-Bold";
-    src: url(Assets/fonts/CenturyGothicStd-Bold.otf);
+	font-family: "CenturyGothic-Bold";
+	src: url(Assets/fonts/CenturyGothicStd-Bold.otf);
 }
 $Centgothicbold: "CenturyGothic-Bold", "Century Gothic Bold", sans-serif;
 
 h1 {
-    font-family: $Centgothicbold;
-    font-size: 3em;}
-
+	font-family: $Centgothicbold;
+	font-size: 3em;}
 h2 {
-    font-family: $Centgothicbold;
-    font-size: 2em;}
-
+	font-family: $Centgothicbold;
+	font-size: 2em;}
 h3 {
-    font-family: $Centgothicbold;
-    font-size: 1.4em;}
-
+	font-family: $Centgothicbold;
+	font-size: 1.4em;}
 p {
-    font-family: $Centgothic;
-    margin: 0;
-    font-size: 1em;}
+	font-family: $Centgothic;
+	margin: 0;
+	font-size: 1em;}
 
 p strong {font-family: $Centgothicbold;}
 .container-fluid {padding: 0;}
@@ -41,51 +37,46 @@ p strong {font-family: $Centgothicbold;}
 body {overflow-x: hidden;}
 
 .ir-arriba {
-    position: fixed;
-    display: none;
-    bottom: 2.5em;
+	position: fixed;
+	display: none;
+	bottom: 3.5em;
 	right: 1.7em;
-    width: 3em;
-    height: 3em;
+	width: 3em;
+	height: 3em;
 	cursor: pointer;
-    z-index: 15;
+	z-index: 15;
 }
 
 /* BARRA DE NAVEGACION _________________________________ */
 .navbar {
-    background-color: white !important;
-    padding: 1em 0;
-    transition: 0.25s;
+	background-color: white !important;
+	padding: 1em 0;
+	transition: 0.25s;
 }
-
 .navbar-brand {
-    margin: 0 0 0 3.5em;
-    width: 10em;
-    transition: 0.25s;
+	margin: 0 0 0 3.5em;
+	width: 10em;
+	transition: 0.25s;
 }
-
 #navb {
-    margin: 0 4em 0 0;
-    .navbar-toggler {
-        margin: 0;
-        padding: 0;
-    }
+	margin: 0 4em 0 0;
+	.navbar-toggler {
+			margin: 0;
+			padding: 0;
+	}
 }
-
 .nav-item {
-    font-family: $Centgothic;
-    list-style: none;
+	font-family: $Centgothic;
+	list-style: none;
 }
-
 .nav-link {
-    margin: 0 .1em;
-    color: $violOscuro !important;
+	margin: 0 .1em;
+	color: $violOscuro !important;
 }
-
 .active, .nav-link:hover {color: $violClaro !important;}
 .navbar-toggler {
-    margin: 0 1em 0 0;
-    border: none !important;
+	margin: 0 1em 0 0;
+	border: none !important;
 }
 
 button:focus {outline: none !important;}
@@ -97,499 +88,480 @@ button:focus {outline: none !important;}
 
 #cnPromos #titulo,
 #cnServicios #titulo, #cnAcerca #titulo {
-    margin: 4em 0;
-    text-align: center;
+	margin: 4em 0;
+	text-align: center;
 }
-
 #promos, #servicios, #acerca, #contacto {
-    margin-top: -3em;
-    padding-top: 3em;
+	margin-top: -3em;
+	padding-top: 3em;
 }
 
 /* CARROUSEL ___________________________________ */
 #cnCarr {
-    height: 100%;
-    padding: 5em 2em 3em 2em;
-    background-color: #D5CAEF;
-    
-    #rowcarr {margin: 2em auto 4em auto;}
-    #imgcarr {
-        margin: 0 2em 0 auto;
-        max-width: 38em;
-        min-width: 34em;
-    }
-    #coltitparr {
-        margin: 3em auto 0 0;
-        max-width: 26em;
-        min-width: 15em;
-    }
-    .cnelemcarr .imgElim img {
-        width: 100%;
-        height: 100%;
-    }
+	height: 100%;
+	padding: 5em 2em 3em 2em;
+	background-color: #D5CAEF;
+	
+	#rowcarr {margin: 2em auto 4em auto;}
+	#imgcarr {
+		margin: 0 2em 0 auto;
+		max-width: 38em;
+		min-width: 34em;
+	}
+	#coltitparr {
+		margin: 3em auto 0 0;
+		max-width: 26em;
+		min-width: 15em;
+	}
+	.cnelemcarr .imgElim img {
+		width: 100%;
+		height: 100%;
+	}
 }
-
 #cnbotonera {
-    margin: 1em auto 2em auto;
-    text-align: center;
+	margin: 1em auto 2em auto;
+	text-align: center;
 }
-
 .btnbotonera {
-    margin: 0 0.15em;
-    width: 0.75em;
-    border: none;
-    background: none;
+	margin: 0 0.15em;
+	width: 0.75em;
+	border: none;
+	background: none;
 }
 .btnbotonera:focus {outline: none;}
 
 /* PROMOCIONES ___________________________________ */
 #cnPromos {
-    background-color: $violIntermed;
-    
-    h1, h2, p {color: white;}
-    #elempromos {
-        margin: 2em auto 8em auto;
-        
-        #titparbot {
-            margin: 4em 2em 0 2em;
-            max-width: 30em;
-            min-width: 21em;
-            .titPromos, .parrPromos {
-                text-align: center;
-            }
-        }
-        #imgpromos {
-            margin: 0 auto;
-            max-width: 37em;
-            min-width: 32em;
-            img {width: 100%;height: 100%;}
-        }
-    }
-    
-    #elempromos:last-child {margin: 2em auto 5em auto;}
-    .botSolic {
-        margin-top: 1.75em;
-        text-align: center;
-    }
+	background-color: $violIntermed;
+	
+	h1, h2, p {color: white;}
+	#elempromos {
+		margin: 2em auto 8em auto;
+		
+		#titparbot {
+			margin: 4em 2em 0 2em;
+			max-width: 30em;
+			min-width: 21em;
+			.titPromos, .parrPromos {
+					text-align: center;
+			}
+		}
+		#imgpromos {
+			margin: 0 auto;
+			max-width: 37em;
+			min-width: 32em;
+			img {width: 100%;height: 100%;}
+		}
+	}
+	#elempromos:last-child {margin: 2em auto 5em auto;}
+	.botSolic {
+		margin-top: 1.75em;
+		text-align: center;
+	}
 }
 
 /* SERVICIOS ___________________________________ */
 #cnServicios {
-    background-color: #EFCA69;
-    
-    h1, h2, p {color: $grisOscuro;}
-    #titulo h1 {text-align: center;}
-    #cnelemserv {margin: 2em auto;}
-    #elemserv {
-        margin-bottom: 3em;
-        padding: 0 3em;
-        min-width: 19em;
-        max-width: 19em;
-        img {
-            width: 100%;
-            height: 100%;
-        }
-        h3, p {
-            text-align: center;
-            margin: 0.6em 0 0 0;
-        }
-        p {margin: 0.5em 0 0 0;}
-    }
+	background-color: #EFCA69;
+	
+	h1, h2, p {color: $grisOscuro;}
+	#titulo h1 {text-align: center;}
+	#cnelemserv {margin: 2em auto;}
+	#elemserv {
+		margin-bottom: 3em;
+		padding: 0 3em;
+		min-width: 19em;
+		max-width: 19em;
+		img {
+				width: 100%;
+				height: 100%;
+		}
+		h3, p {
+				text-align: center;
+				margin: 0.6em 0 0 0;
+		}
+		p {margin: 0.5em 0 0 0;}
+	}
 }
 
 /* ACERCA _____________________________________ */
 #cnAcerca {
-    background-color: $violOscuro;
-    
-    h1, h2, p {color: white;}
-    h2 {font-size: 3em;}
-    
-    #cnelimg {
-        margin: 0 auto 0 auto;
-        padding: 2.5em 0 0 2em;
-        #imgelim {
-            margin: 0 auto;
-            max-width: 40em;
-            min-width: 35em;
-        }
-        #titpar {
-            margin: 3em auto 0 auto;
-            padding: 0 2.5em;
-            max-width: 31.5em;
-            min-width: 25em;
-        }
-        img {
-            width: 100%;
-            height: 100%;
-        }
-    }
-    #titulo h1 {text-align: center;}
+	background-color: $violOscuro;
+	
+	h1, h2, p {color: white;}
+	h2 {font-size: 3em;}
+	
+	#cnelimg {
+		margin: 0 auto 0 auto;
+		padding: 2.5em 0 0 2em;
+		#imgelim {
+			margin: 0 auto;
+			max-width: 40em;
+			min-width: 35em;
+		}
+		#titpar {
+			margin: 3em auto 0 auto;
+			padding: 0 2.5em;
+			max-width: 31.5em;
+			min-width: 25em;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	#titulo h1 {text-align: center;}
 }
 
 #cnMaria {
-    margin: 11em 0 5em 2em;
-    max-width: 37em;
-    min-width: 30em;
+	margin: 11em 0 5em 2em;
+	max-width: 37em;
+	min-width: 30em;
 }
 
 /* CONTACTO ___________________________________ */
 #cnContacto {
-    background-color: $violClaro; padding: 0 5em 5em 5em;
-    
-    #cnDato {
-        margin: .3em 0 0 0; list-style: none;
+	background-color: $violClaro; padding: 0 5em 5em 5em;
+	
+	#cnDato {
+		margin: .3em 0 0 0; list-style: none;
 
-        .col-1 {padding: 0;}
-        .col-11 {
-            margin: 0;
-            padding: 0 0 0 .5em;
-        }
-        .imgDato {width: 2em;}
-        .imgDato img {width: 100%; height: 100%;}
-    }
-    
-    #titulo {margin: 4em 0 0 0; text-align: center;}
-    #subtit {
-        margin: 0 auto;
-        min-width: 10em;
-        max-width: 21em;
-        font-size: 1.3em;
-        text-align: center;
-    }
-    #cndatosyform {margin: 7em auto 1em auto;}
-    #cnDatos {
-        margin: 0 auto;
-        min-width: 26em;
-        max-width: 35em;
-        p {font-size: 1.4em!important; color: $grisOscuro;}
-        a {font-size: 1.2em!important; color: $grisOscuro;}
-        #cnDato p {font-size: 1.2em!important;}
-    }
-    h1, h2, p {color: $grisOscuro;}
-    
-    #cnForm {
-        margin: 0 auto;
-        min-width: 31em;
-        max-width: 35em;
-        #frmcolbut {margin: 1em 0 0 0;}
-        button {
-            width: 10em;
-            height: 2.2em;
-            padding: 0;
-        }
-    }
-    .col-form-label {
-        font-size: .92em;
-    }
-    .form-control {font-size: .96em;}
+		.col-1 {padding: 0;}
+		.col-11 {
+			margin: 0;
+			padding: 0 0 0 .5em;
+		}
+		.imgDato {width: 2em;}
+		.imgDato img {width: 100%; height: 100%;}
+	}
+	
+	#titulo {margin: 4em 0 0 0; text-align: center;}
+	#subtit {
+		margin: 0 auto;
+		min-width: 10em;
+		max-width: 21em;
+		font-size: 1.3em;
+		text-align: center;
+	}
+	#cndatosyform {margin: 7em auto 1em auto;}
+	#cnDatos {
+		margin: 0 auto;
+		min-width: 26em;
+		max-width: 35em;
+		p {font-size: 1.4em!important; color: $grisOscuro;}
+		a {font-size: 1.2em!important; color: $grisOscuro;}
+		#cnDato p {font-size: 1.2em!important;}
+	}
+	h1, h2, p {color: $grisOscuro;}
+	
+	#cnForm {
+		margin: 0 auto;
+		min-width: 31em;
+		max-width: 35em;
+		#frmcolbut {margin: 1em 0 0 0;}
+		button {
+				width: 10em;
+				height: 2.2em;
+				padding: 0;
+		}
+	}
+	.col-form-label {
+		font-size: .92em;
+	}
+	.form-control {font-size: .96em;}
 }
 
 /* FOOTER ___________________________________ */
 #cnFooter {
-    padding: .5em 0;
-    background-color: $violIntermed;
-    text-align: center;
-    color: white;
-    
-    .col-md {margin: 0 1em;}
-    p {font-size: 0.8em;}
-    a {
-        text-decoration: none;
-        text-align: center;
-        color: white;
-        &:hover {
-            color: white;
-            text-decoration: underline;
-        }
-    }
-    img {
-        width: 120px;
-    }
+	padding: .5em 0;
+	background-color: $violIntermed;
+	text-align: center;
+	color: white;
+	
+	.col-md {margin: 0 1em;}
+	p {font-size: 0.8em;}
+	a {
+		text-decoration: none;
+		text-align: center;
+		color: white;
+		&:hover {
+			color: white;
+			text-decoration: underline;
+		}
+	}
+	img {
+		width: 120px;
+	}
 }
 
 /* MEDIA QUERIES ___________________________________ */
 /* DESKTOP < 1136 */
 @media screen and (max-width: 1136px) {
-    #colfantasma {display: none;}
-    #cnAcerca #cnelimg {
-        padding: 2em 0;
-        
-        #imgelim {
-            margin: 0 auto;
-            max-width: 37em;
-            min-width: 35em;
-        }
-        #titpar {
-            margin: 3em auto 0 auto;
-            padding: 0;
-            max-width: 35em;
-            min-width: 25em;
-            text-align: center;
-        }
-    }
-    
-    #cnMaria {
-        margin: 10em auto 5em auto;
-        padding: 0!important;
-        max-width: 35em;
-        min-width: 35em;
-        text-align: center;
-    }
+	#colfantasma {display: none;}
+	#cnAcerca #cnelimg {
+		padding: 2em 0;
+		#imgelim {
+			margin: 0 auto;
+			max-width: 37em;
+			min-width: 35em;
+		}
+		#titpar {
+			margin: 3em auto 0 auto;
+			padding: 0;
+			max-width: 35em;
+			min-width: 25em;
+			text-align: center;
+		}
+	}
+	#cnMaria {
+		margin: 10em auto 5em auto;
+		padding: 0!important;
+		max-width: 35em;
+		min-width: 35em;
+		text-align: center;
+	}
 }
 
 /* DESKTOP < 1087 */
 @media screen and (max-width: 1087px) {
-    #cnPromos {
-        #elempromos {
-            margin: 2em auto 6em auto;
-            #titparbot {
-                margin-top: 2.75em;
-                max-width: 100%;
-            }
-            &:last-child {margin: 2em auto 3em auto;}
-        }
-    }
-    
-    #cnContacto {
-        #cnDatos {
-            margin: 0 auto 3em auto;
-            min-width: 26em;
-            max-width: 27em;
-        }
-        #cnForm {
-            margin: 0 auto;
-            min-width: 31em;
-            max-width: 40em;
-        }
-    }
+	#cnPromos {
+		#elempromos {
+			margin: 2em auto 6em auto;
+			#titparbot {
+					margin-top: 2.75em;
+					max-width: 100%;
+			}
+			&:last-child {margin: 2em auto 3em auto;}
+		}
+	}
+	#cnContacto {
+		#cnDatos {
+			margin: 0 auto 3em auto;
+			min-width: 26em;
+			max-width: 27em;
+		}
+		#cnForm {
+			margin: 0 auto;
+			min-width: 31em;
+			max-width: 40em;
+		}
+	}
 }
 
 /* DESKTOP < 959 */
 @media screen and (max-width: 959px) {
-    #cnCarr {
-        #rowcarr {margin: 2em auto;}
-        #imgcarr {
-            margin: 0 auto 0 auto;
-            max-width: 38em;
-            min-width: 34em;
-        }
-        #coltitparr {
-            margin: 3em 7em 0 7em;
-            max-width: 100%;
-            text-align: center;
-        }
-    }
+	#cnCarr {
+		#rowcarr {margin: 2em auto;}
+		#imgcarr {
+			margin: 0 auto 0 auto;
+			max-width: 38em;
+			min-width: 34em;
+		}
+		#coltitparr {
+			margin: 3em 7em 0 7em;
+			max-width: 100%;
+			text-align: center;
+		}
+	}
 }
 
 /* DESKTOP < 782 */
 @media screen and (max-width: 782px) {
-    h3 {font-size: 2em;}
-    #cnPromos, #cnServicios, 
-    #cnAcerca {padding: 0 2em 5em 2em;}
-    
-    #cnServicios #elemserv {
-        margin: 0 auto 3em auto;
-        padding: 0 auto;
-        min-width: 20em;
-        max-width: 30em;
-    }
+	h3 {font-size: 2em;}
+	#cnPromos, #cnServicios, 
+	#cnAcerca {padding: 0 2em 5em 2em;}
+	
+	#cnServicios #elemserv {
+		margin: 0 auto 3em auto;
+		padding: 0 auto;
+		min-width: 20em;
+		max-width: 30em;
+	}
 }
 
 /* TABLET */
 @media screen and (max-width: 767px) {
-    h1 {font-size: 2.85em;}
-    h2 {font-size: 1.9em !important;}
-    p {font-size: .9em;}
-    
-    .ir-arriba {
-        bottom: 2.7em;
-        right: 0.4em;
-        width: 2.3em;
-        height: 2.3em;
-    }
-    
-    #cnPromos #elempromos #titparbot {min-width: 0;}
-    #cnCarr {
-        height: 100%;
-        
-        #rowcarr {margin: 0 auto 1.5em auto;}
-        #imgcarr {
-            margin: 0 auto 0 auto;
-            max-width: 38em;
-            min-width: 25em;
-        }
-        #coltitparr {
-            margin: 3em 5em 0 5em;
-            max-width: 100%;
-            text-align: center!important;
-        }
-    }
-    
-    #contenido {margin: 3.7em 0 0 0;}
-    .navbar-brand {margin: 0 0 0 2em;}
-    
-    #navb {
-        margin: 0 auto; text-align: center;
-        .navbar-toggler {display: inherit; font-size: 1.5em;}
-        .nav-link {padding: .6em 0;}
-        #pr {margin: .6em 0 0 0; padding: .6em 0;}
-        #ul {margin: 0 0 .6em 0; padding: .6em 0;}
-    }
-    
-    #cnCarr {margin-top: 3.75em;}
-    #cnPromos #elempromos #imgpromos {
-        margin: 0 auto;
-        padding: 0 1em;
-        max-width: 100%;
-        min-width: 20em;
-    }
-    
-    #cnServicios {
-        #cnelemserv {margin: 1em auto;}
-        #elemserv {
-            padding: 0 auto;
-            min-width: 20em;
-            max-width: 27em;
-        }
-    }
-    
-    #cnAcerca {
-        #cnelimg {
-            padding: 2em 0;
-
-            #imgelim {
-                margin: 0 auto;
-                padding: 0 2em;
-                max-width: 100%;
-                min-width: 20em;
-            }
-            #titpar {
-                margin: 3em auto 0 auto;
-                padding: 0 1.5em;
-                max-width: 85%;
-                min-width: 25em;
-            }
-        }
-    }
-    
-    #cnMaria {
-        margin: 6em auto 2.5em auto;
-        padding: 0 1.5em !important;
-        min-width: 20em;
-        max-width: 85%;
-    }
-    
-    #cnContacto {
-        padding: 0 2em 3em 2em;
-        
-        #cndatosyform {margin: 5em auto 1em auto;}
-        #cnDatos {margin: 0 0 2.5em 0;}
-        #cnForm {
-            margin: 0 auto;
-            min-width: 100%;
-            max-width: 100%;
-        }
-    }
-    
-    #cnFooter p {font-size: 0.75em;}
+	h1 {font-size: 2.85em;}
+	h2 {font-size: 1.9em !important;}
+	p {font-size: .9em;}
+	.ir-arriba {
+		bottom: 2.7em;
+		right: 0.4em;
+		width: 2.3em;
+		height: 2.3em;
+	}
+	#cnPromos #elempromos #titparbot {min-width: 0;}
+	#cnCarr {
+		height: 100%;
+		
+		#rowcarr {margin: 0 auto 1.5em auto;}
+		#imgcarr {
+			margin: 0 auto 0 auto;
+			max-width: 38em;
+			min-width: 25em;
+		}
+		#coltitparr {
+			margin: 3em 5em 0 5em;
+			max-width: 100%;
+			text-align: center!important;
+		}
+	}
+	
+	#contenido {margin: 3.7em 0 0 0;}
+	.navbar-brand {margin: 0 0 0 2em;}
+	#navb {
+		margin: 0 auto; text-align: center;
+		.navbar-toggler {display: inherit; font-size: 1.5em;}
+		.nav-link {padding: .6em 0;}
+		#pr {margin: .6em 0 0 0; padding: .6em 0;}
+		#ul {margin: 0 0 .6em 0; padding: .6em 0;}
+	}
+	#cnCarr {margin-top: 3.75em;}
+	#cnPromos #elempromos #imgpromos {
+		margin: 0 auto;
+		padding: 0 1em;
+		max-width: 100%;
+		min-width: 20em;
+	}
+	#cnServicios {
+		#cnelemserv {margin: 1em auto;}
+		#elemserv {
+			padding: 0 auto;
+			min-width: 20em;
+			max-width: 27em;
+		}
+	}
+	
+	#cnAcerca {
+		#cnelimg {
+			padding: 2em 0;
+			#imgelim {
+				margin: 0 auto;
+				padding: 0 2em;
+				max-width: 100%;
+				min-width: 20em;
+			}
+			#titpar {
+				margin: 3em auto 0 auto;
+				padding: 0 1.5em;
+				max-width: 85%;
+				min-width: 25em;
+			}
+		}
+	}
+	#cnMaria {
+		margin: 6em auto 2.5em auto;
+		padding: 0 1.5em !important;
+		min-width: 20em;
+		max-width: 85%;
+	}
+	#cnContacto {
+		padding: 0 2em 3em 2em;
+		
+		#cndatosyform {margin: 5em auto 1em auto;}
+		#cnDatos {margin: 0 0 2.5em 0;}
+		#cnForm {
+			margin: 0 auto;
+			min-width: 100%;
+			max-width: 100%;
+		}
+	}
+	
+	#cnFooter p {font-size: 0.75em;}
 }
 
 /* SMARTPHONES */
 @media screen and (max-width: 550px) {
-    #cnPromos, #cnServicios, 
-    #cnAcerca {padding: 0 .4em 2em .4em;}
-    
-    h1 {font-size: 2.5em;}
-    h2 {font-size: 1.5em;}
-    h3 {font-size: 1.6em;}
-    p {font-size: 0.9em;}
-    
-    #contenido {margin: 3.2em 0 0 0;}
-    .ir-arriba {
-        bottom: 2.7em;
-        right: 0.5em;
-        width: 2.5em;
-        height: 2.5em;
-    }
-    
-    #cnCarr {
-        height: calc(100vh - 3em);
-        padding: 5em 2em 2em 2em;
-        margin-top: 3.1em;
-        
-        #rowcarr {
-            margin: 0 auto 1.5em auto;
-        }
-        
-        #imgcarr {
-            margin: 0 auto;
-            padding: 0;
-            max-width: 100%;
-            min-width: 0;
-        }
-        
-        #coltitparr {
-            margin: 2.5em 1em 0 1em;
-            max-width: 100%;
-        }
-    }
-    
-    .navbar-brand {margin: 0 0 0 1.5em;}
-    .navbar-toggler {margin: 0 .7em 0 0;}
-    .navbar-toggler-icon {
-        width: 1.3em;
-        height: 1.3em;
-    }
-    
-    #navb {
-        .navbar-toggler {font-size: 1.3em;}
-        .nav-link {padding: .5em 0;}
-        #pr {margin: .5em 0 0 0; padding: .5em 0;}
-        #ul {margin: 0 0 .5em 0; padding: .5em 0;}
-    }
-    
-    #cnPromos #elempromos #imgpromos {padding: 0 1.6em;}
-    
-    #cnServicios {
-        #cnelemserv {margin: 0 auto;}
-        #elemserv {
-            padding: 0 4.7em;
-            min-width: 10em;
-            max-width: 100%;
-        }
-    }
-    
-    #cnAcerca {
-        #cnelimg {
-            #imgelim {padding: 0 2.5em;}
-            #titpar {
-                margin: 3em auto 0 auto;
-                padding: 0 2.5em;
-                max-width: 100%;
-                min-width: 1em;
-            }
-        }
-    }
-    
-    #cnMaria {
-        margin: 4em auto 4em auto;
-        padding: 0 2.5em !important;
-        min-width: 1em;
-        max-width: 100%;
-    }
-    
-    #cnContacto {
-        padding: 0 1em 2.5em 1em;
-        
-        #subtit {font-size: 1.2em;}
-        #cnDatos {margin: 0 0 2em 0;}
-    }
+	#cnPromos, #cnServicios, 
+	#cnAcerca {padding: 0 .4em 2em .4em;}
+	
+	h1 {font-size: 2.5em;}
+	h2 {font-size: 1.5em;}
+	h3 {font-size: 1.6em;}
+	p {font-size: 0.9em;}
+	
+	#contenido {margin: 3.2em 0 0 0;}
+	.ir-arriba {
+		bottom: 2.7em;
+		right: 0.5em;
+		width: 2.5em;
+		height: 2.5em;
+	}
+	#cnCarr {
+		height: calc(100vh - 3em);
+		padding: 5em 2em 2em 2em;
+		margin-top: 3.1em;
+		
+		#rowcarr {
+			margin: 0 auto 1.5em auto;
+		}
+		#imgcarr {
+			margin: 0 auto;
+			padding: 0;
+			max-width: 100%;
+			min-width: 0;
+		}
+		#coltitparr {
+			margin: 2.5em 1em 0 1em;
+			max-width: 100%;
+		}
+	}
+	.navbar-brand {margin: 0 0 0 1.5em;}
+	.navbar-toggler {margin: 0 .7em 0 0;}
+	.navbar-toggler-icon {
+		width: 1.3em;
+		height: 1.3em;
+	}
+	
+	#navb {
+		.navbar-toggler {font-size: 1.3em;}
+		.nav-link {padding: .5em 0;}
+		#pr {margin: .5em 0 0 0; padding: .5em 0;}
+		#ul {margin: 0 0 .5em 0; padding: .5em 0;}
+	}
+	
+	#cnPromos #elempromos #imgpromos {padding: 0 1.6em;}
+	
+	#cnServicios {
+		#cnelemserv {margin: 0 auto;}
+		#elemserv {
+			padding: 0 4.7em;
+			min-width: 10em;
+			max-width: 100%;
+		}
+	}
+	
+	#cnAcerca {
+		#cnelimg {
+			#imgelim {padding: 0 2.5em;}
+			#titpar {
+				margin: 3em auto 0 auto;
+				padding: 0 2.5em;
+				max-width: 100%;
+				min-width: 1em;
+			}
+		}
+	}
+	
+	#cnMaria {
+		margin: 4em auto 4em auto;
+		padding: 0 2.5em !important;
+		min-width: 1em;
+		max-width: 100%;
+	}
+	
+	#cnContacto {
+		padding: 0 1em 2.5em 1em;
+		
+		#subtit {font-size: 1.2em;}
+		#cnDatos {margin: 0 0 2em 0;}
+	}
 
-    #cnDatos p {
-        font-size: 1.1em!important;
-        
-        #cnDato p {font-size: 1.1em!important;}
-        a {font-size: 1.18em!important;}
-    }
-    #cnFooter p {font-size: 0.7em;}
+	#cnDatos p {
+		font-size: 1.1em!important;
+		
+		#cnDato p {font-size: 1.1em!important;}
+		a {font-size: 1.18em!important;}
+	}
+	#cnFooter p {font-size: 0.7em;}
 }
