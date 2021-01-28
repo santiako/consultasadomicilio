@@ -21,14 +21,12 @@ import icn_what from './Assets/imagenes/icn_whatsapp.png'
 import icn_mail from './Assets/imagenes/icn_mail.png'
 import logoDF from './Assets/imagenes/Logo-web-white.png'
 
-
 function App() {
 return (
     <div className="container-fluid">
         <div id="cnBarraNav">
             <Barranav />
         </div>
-        
         <div id="contenido">
             <div id="homeSlide">
                 <Carrousel />
@@ -213,7 +211,7 @@ class Carrousel extends React.Component {
 
 render() {
     const imgarr = [mascotas, gato1, perrogato]
-    const titarr = ["ATENCIÓN PROFESIONAL A DOMICILIO", 
+    const titarr = ["ATENCIÓN PROFESIONAL", 
                     "32 AÑOS DE EXPERIENCIA", 
                     "PENSIÓN DE MASCOTAS"]
     const parrarr = ["Realizamos consultas profesionales a domicilio para su comodidad y la de su mascota. Trabajamos en Capital Federal y Zona Norte.", 
@@ -685,7 +683,7 @@ return(
                 <img src={props.icnsrc} alt="Icon" />
             </div>
         </div>
-        <div className="col-11">
+        <div className="col-11 wpptxt">
             <p>{props.txt}</p>
         </div>
     </div>

@@ -5,6 +5,16 @@ $violClaro: #C7B5E2;
 $violIntermed: #A07DC9;
 $grisOscuro: #262626;
 
+// Mixins
+@mixin marMinMax ($margin, $min, $max) {
+	margin: $margin;
+	min-width: $min;
+	max-width: $max;
+}
+@mixin titlemrg ($value) {
+	margin: $value;
+}
+
 @font-face {
 	font-family: "CenturyGothic";
 	src: url(Assets/fonts/CenturyGothicStd.otf);
@@ -104,14 +114,10 @@ button:focus {outline: none !important;}
 	
 	#rowcarr {margin: 2em auto 4em auto;}
 	#imgcarr {
-		margin: 0 2em 0 auto;
-		max-width: 38em;
-		min-width: 34em;
+		@include marMinMax(0 2em 0 auto, 34em, 38em);
 	}
 	#coltitparr {
-		margin: 3em auto 0 0;
-		max-width: 26em;
-		min-width: 15em;
+		@include marMinMax(3em auto 0 0, 15em, 26em);
 	}
 	.cnelemcarr .imgElim img {
 		width: 100%;
@@ -137,19 +143,14 @@ button:focus {outline: none !important;}
 	h1, h2, p {color: white;}
 	#elempromos {
 		margin: 2em auto 8em auto;
-		
 		#titparbot {
-			margin: 4em 2em 0 2em;
-			max-width: 30em;
-			min-width: 21em;
+			@include marMinMax(4em 2em 0 2em, 21em, 30em);
 			.titPromos, .parrPromos {
 					text-align: center;
 			}
 		}
 		#imgpromos {
-			margin: 0 auto;
-			max-width: 37em;
-			min-width: 32em;
+			@include marMinMax(0 auto, 32em, 37em);
 			img {width: 100%;height: 100%;}
 		}
 	}
@@ -195,15 +196,11 @@ button:focus {outline: none !important;}
 		margin: 0 auto 0 auto;
 		padding: 2.5em 0 0 2em;
 		#imgelim {
-			margin: 0 auto;
-			max-width: 40em;
-			min-width: 35em;
+			@include marMinMax(0 auto, 35em, 40em);
 		}
 		#titpar {
-			margin: 3em auto 0 auto;
+			@include marMinMax(3em auto 0 auto, 25em, 31.5em);
 			padding: 0 2.5em;
-			max-width: 31.5em;
-			min-width: 25em;
 		}
 		img {
 			width: 100%;
@@ -214,22 +211,21 @@ button:focus {outline: none !important;}
 }
 
 #cnMaria {
-	margin: 11em 0 5em 2em;
-	max-width: 37em;
-	min-width: 30em;
+	@include marMinMax(11em 0 5em 2em, 30em, 37em);
 }
 
 /* CONTACTO ___________________________________ */
 #cnContacto {
 	background-color: $violClaro; padding: 0 5em 5em 5em;
-	
 	#cnDato {
 		margin: .3em 0 0 0; list-style: none;
-
 		.col-1 {padding: 0;}
 		.col-11 {
 			margin: 0;
 			padding: 0 0 0 .5em;
+		}
+		.wpptxt {
+			padding: .35em 0 0 .5em;
 		}
 		.imgDato {width: 2em;}
 		.imgDato img {width: 100%; height: 100%;}
@@ -237,17 +233,13 @@ button:focus {outline: none !important;}
 	
 	#titulo {margin: 4em 0 0 0; text-align: center;}
 	#subtit {
-		margin: 0 auto;
-		min-width: 10em;
-		max-width: 21em;
+		@include marMinMax(0 auto, 10em, 21em);
 		font-size: 1.3em;
 		text-align: center;
 	}
 	#cndatosyform {margin: 7em auto 1em auto;}
 	#cnDatos {
-		margin: 0 auto;
-		min-width: 26em;
-		max-width: 35em;
+		@include marMinMax(0 auto, 26em, 35em);
 		p {font-size: 1.4em!important; color: $grisOscuro;}
 		a {font-size: 1.2em!important; color: $grisOscuro;}
 		#cnDato p {font-size: 1.2em!important;}
@@ -255,9 +247,7 @@ button:focus {outline: none !important;}
 	h1, h2, p {color: $grisOscuro;}
 	
 	#cnForm {
-		margin: 0 auto;
-		min-width: 31em;
-		max-width: 35em;
+		@include marMinMax(0 auto, 31em, 35em);
 		#frmcolbut {margin: 1em 0 0 0;}
 		button {
 				width: 10em;
@@ -290,34 +280,64 @@ button:focus {outline: none !important;}
 		}
 	}
 	img {
-		width: 120px;
+		width: 100px;
 	}
 }
 
 /* MEDIA QUERIES ___________________________________ */
+/* DESKTOP < 1391 */
+@media screen and (max-width: 1391px) {
+#cnServicios {
+	#cnelemserv {
+		margin: 2em 0 0 10.9vw;
+	}
+}
+}
+
+/* DESKTOP < 1300 */
+@media screen and (max-width: 1300px) {
+	#cnServicios {
+		#cnelemserv {
+			margin: 2em 0 0 8.3vw;
+		}
+	}
+}
+
+/* DESKTOP < 1220 */
+@media screen and (max-width: 1220px) {
+	#cnServicios {
+		#cnelemserv {
+			margin: 2em 0 0 5.4vw;
+		}
+	}
+}
+
+/* DESKTOP < 1130 */
+@media screen and (max-width: 1130px) {
+	#cnServicios {
+		#cnelemserv {
+			margin: 2em 0 0 0;
+		}
+	}
+}
+
 /* DESKTOP < 1136 */
 @media screen and (max-width: 1136px) {
 	#colfantasma {display: none;}
 	#cnAcerca #cnelimg {
 		padding: 2em 0;
 		#imgelim {
-			margin: 0 auto;
-			max-width: 37em;
-			min-width: 35em;
+			@include marMinMax(0 auto, 35em, 37em);
 		}
 		#titpar {
-			margin: 3em auto 0 auto;
+			@include marMinMax(3em auto 0 auto, 25em, 35em);
 			padding: 0;
-			max-width: 35em;
-			min-width: 25em;
 			text-align: center;
 		}
 	}
 	#cnMaria {
-		margin: 10em auto 5em auto;
+		@include marMinMax(10em auto 5em auto, 35em, 35em);
 		padding: 0!important;
-		max-width: 35em;
-		min-width: 35em;
 		text-align: center;
 	}
 }
@@ -336,14 +356,10 @@ button:focus {outline: none !important;}
 	}
 	#cnContacto {
 		#cnDatos {
-			margin: 0 auto 3em auto;
-			min-width: 26em;
-			max-width: 27em;
+			@include marMinMax(0 auto 3em auto, 26em, 27em);
 		}
 		#cnForm {
-			margin: 0 auto;
-			min-width: 31em;
-			max-width: 40em;
+			@include marMinMax(0 auto, 31em, 40em);
 		}
 	}
 }
@@ -353,9 +369,7 @@ button:focus {outline: none !important;}
 	#cnCarr {
 		#rowcarr {margin: 2em auto;}
 		#imgcarr {
-			margin: 0 auto 0 auto;
-			max-width: 38em;
-			min-width: 34em;
+			@include marMinMax(0 auto 0 auto, 34em, 38em);
 		}
 		#coltitparr {
 			margin: 3em 7em 0 7em;
@@ -372,14 +386,19 @@ button:focus {outline: none !important;}
 	#cnAcerca {padding: 0 2em 5em 2em;}
 	
 	#cnServicios #elemserv {
-		margin: 0 auto 3em auto;
+		@include marMinMax(0 auto 3em auto, 20em, 30em);
 		padding: 0 auto;
-		min-width: 20em;
-		max-width: 30em;
 	}
 }
 
 /* TABLET */
+@media screen and (max-width: 782px) {
+	#cnServicios {
+		#cnelemserv {
+			margin: 1em 0 0 16vw;
+		}
+	}
+}
 @media screen and (max-width: 767px) {
 	h1 {font-size: 2.85em;}
 	h2 {font-size: 1.9em !important;}
@@ -396,9 +415,7 @@ button:focus {outline: none !important;}
 		
 		#rowcarr {margin: 0 auto 1.5em auto;}
 		#imgcarr {
-			margin: 0 auto 0 auto;
-			max-width: 38em;
-			min-width: 25em;
+			@include marMinMax(0 auto 0 auto, 25em, 38em);
 		}
 		#coltitparr {
 			margin: 3em 5em 0 5em;
@@ -406,7 +423,6 @@ button:focus {outline: none !important;}
 			text-align: center!important;
 		}
 	}
-	
 	#contenido {margin: 3.7em 0 0 0;}
 	.navbar-brand {margin: 0 0 0 2em;}
 	#navb {
@@ -418,55 +434,41 @@ button:focus {outline: none !important;}
 	}
 	#cnCarr {margin-top: 3.75em;}
 	#cnPromos #elempromos #imgpromos {
-		margin: 0 auto;
+		@include marMinMax(0 auto, 20em, 100%);
 		padding: 0 1em;
-		max-width: 100%;
-		min-width: 20em;
 	}
 	#cnServicios {
-		#cnelemserv {margin: 1em auto;}
 		#elemserv {
 			padding: 0 auto;
 			min-width: 20em;
 			max-width: 27em;
 		}
 	}
-	
 	#cnAcerca {
 		#cnelimg {
 			padding: 2em 0;
 			#imgelim {
-				margin: 0 auto;
+				@include marMinMax(0 auto, 20em, 100%);
 				padding: 0 2em;
-				max-width: 100%;
-				min-width: 20em;
 			}
 			#titpar {
-				margin: 3em auto 0 auto;
+				@include marMinMax(3em auto 0 auto, 25em, 85%);
 				padding: 0 1.5em;
-				max-width: 85%;
-				min-width: 25em;
 			}
 		}
 	}
 	#cnMaria {
-		margin: 6em auto 2.5em auto;
+		@include marMinMax(6em auto 2.5em auto, 20em, 85%);
 		padding: 0 1.5em !important;
-		min-width: 20em;
-		max-width: 85%;
 	}
 	#cnContacto {
 		padding: 0 2em 3em 2em;
-		
 		#cndatosyform {margin: 5em auto 1em auto;}
 		#cnDatos {margin: 0 0 2.5em 0;}
 		#cnForm {
-			margin: 0 auto;
-			min-width: 100%;
-			max-width: 100%;
+			@include marMinMax(0 auto, 100%, 100%);
 		}
 	}
-	
 	#cnFooter p {font-size: 0.75em;}
 }
 
@@ -474,37 +476,35 @@ button:focus {outline: none !important;}
 @media screen and (max-width: 550px) {
 	#cnPromos, #cnServicios, 
 	#cnAcerca {padding: 0 .4em 2em .4em;}
-	
 	h1 {font-size: 2.5em;}
 	h2 {font-size: 1.5em;}
 	h3 {font-size: 1.6em;}
 	p {font-size: 0.9em;}
 	
-	#contenido {margin: 3.2em 0 0 0;}
+	#contenido {
+		margin: 3.2em 0 0 0;
+		#cnCarr {
+			height: calc(100vh - 1em);
+			padding: 5em 2em 2em 2em;
+			margin-top: 3.1em;
+			#rowcarr {
+				margin: 0 auto 1.5em auto;
+			}
+			#imgcarr {
+				@include marMinMax(0 auto, 0, 100%);
+				padding: 0;
+			}
+			#coltitparr {
+				margin: 2.5em 1em 0 1em;
+				max-width: 100%;
+			}
+		}	
+	}
 	.ir-arriba {
 		bottom: 2.7em;
 		right: 0.5em;
 		width: 2.5em;
 		height: 2.5em;
-	}
-	#cnCarr {
-		height: calc(100vh - 3em);
-		padding: 5em 2em 2em 2em;
-		margin-top: 3.1em;
-		
-		#rowcarr {
-			margin: 0 auto 1.5em auto;
-		}
-		#imgcarr {
-			margin: 0 auto;
-			padding: 0;
-			max-width: 100%;
-			min-width: 0;
-		}
-		#coltitparr {
-			margin: 2.5em 1em 0 1em;
-			max-width: 100%;
-		}
 	}
 	.navbar-brand {margin: 0 0 0 1.5em;}
 	.navbar-toggler {margin: 0 .7em 0 0;}
@@ -512,16 +512,20 @@ button:focus {outline: none !important;}
 		width: 1.3em;
 		height: 1.3em;
 	}
-	
 	#navb {
 		.navbar-toggler {font-size: 1.3em;}
 		.nav-link {padding: .5em 0;}
 		#pr {margin: .5em 0 0 0; padding: .5em 0;}
 		#ul {margin: 0 0 .5em 0; padding: .5em 0;}
 	}
-	
-	#cnPromos #elempromos #imgpromos {padding: 0 1.6em;}
-	
+	#cnPromos {
+		#elempromos {
+			#imgpromos {padding: 0 1.6em;}
+		}
+		#titulo {
+			@include titlemrg (4em 0 0 0);
+		}
+	}
 	#cnServicios {
 		#cnelemserv {margin: 0 auto;}
 		#elemserv {
@@ -529,39 +533,43 @@ button:focus {outline: none !important;}
 			min-width: 10em;
 			max-width: 100%;
 		}
+		#titulo {
+			@include titlemrg (4em 0 1em 0);
+		}
 	}
-	
 	#cnAcerca {
+		#titulo {
+			@include titlemrg (4em 0 0 0);
+		}
 		#cnelimg {
 			#imgelim {padding: 0 2.5em;}
 			#titpar {
-				margin: 3em auto 0 auto;
+				@include marMinMax(3em auto 0 auto, 1em, 100%);
 				padding: 0 2.5em;
-				max-width: 100%;
-				min-width: 1em;
 			}
 		}
 	}
-	
 	#cnMaria {
-		margin: 4em auto 4em auto;
+		@include marMinMax(4em auto 4em auto, 1em, 100%);
 		padding: 0 2.5em !important;
-		min-width: 1em;
-		max-width: 100%;
 	}
-	
 	#cnContacto {
 		padding: 0 1em 2.5em 1em;
-		
 		#subtit {font-size: 1.2em;}
-		#cnDatos {margin: 0 0 2em 0;}
+		#cnDatos {
+			@include marMinMax(0 0 2em 0, 0, 100%);
+			p {
+				font-size: 1.1em!important;
+				#cnDato p {font-size: 1.1em!important;}
+				a {font-size: 1.18em!important;}
+			}
+		}
 	}
-
-	#cnDatos p {
-		font-size: 1.1em!important;
-		
-		#cnDato p {font-size: 1.1em!important;}
-		a {font-size: 1.18em!important;}
+	#cnFooter {
+		padding: .9em 0 0.5em;
+		p {font-size: 0.7em;}
+		img {
+			width: 90px;
+		}
 	}
-	#cnFooter p {font-size: 0.7em;}
 }
