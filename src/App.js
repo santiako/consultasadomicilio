@@ -420,7 +420,7 @@ render() {
                     <p>{this.props.parrafo}</p>
                 </div>
                 <div className="botSolic">
-                    <a href="#contacto" class="btn btn-primary">SOLICITAR TURNO</a>
+                    <a href="#contacto" className="btn btn-primary">SOLICITAR TURNO</a>
                 </div>
             </div>
         </div>
@@ -667,7 +667,7 @@ return(
             <div className="col-md" id="cnForm">
                 <form className="form-contacto" id="form-contacto">
                     <div className="form-group row" id="formgroup">
-                        <label htmlFor="name" class="col-md-2 col-form-label">Nombre: </label>
+                        <label htmlFor="name" className="col-md-2 col-form-label">Nombre: </label>
                         <div className="col-md-10">
                             <input className="form-control inp-name" 
                             type="text" 
@@ -678,7 +678,7 @@ return(
                         </div>
                     </div>
                     <div className="form-group row" id="formgroup">
-                        <label htmlFor="email" class="col-md-2 col-form-label">E-mail: </label>
+                        <label htmlFor="email" className="col-md-2 col-form-label">E-mail: </label>
                         <div className="col-md-10">
                             <input type="email" 
                                 className="form-control inp-mail" 
@@ -690,7 +690,7 @@ return(
                         </div>
                     </div>
                     <div className="form-group row" id="formgroup">
-                        <label htmlFor="msg" class="col-md-2 col-form-label">Mensaje: </label>
+                        <label htmlFor="msg" className="col-md-2 col-form-label">Mensaje: </label>
                         <div className="col-md-10">
                             <textarea className="form-control inp-text" rows="6" 
                                 name="msg" 
@@ -704,7 +704,7 @@ return(
                                 type="submit" 
                                 value="Enviar" 
                                 onClick={this.handleSubmit} />
-                            <label htmlFor="msg" class="col-form-label" 
+                            <label htmlFor="msg" className="col-form-label" 
                                 style={this.state.lblstyle}>¡Mensaje enviado!</label>
                         </div>
                     </div>
