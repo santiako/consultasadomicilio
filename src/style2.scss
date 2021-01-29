@@ -101,7 +101,10 @@ body {overflow-x: hidden;}
 }
 
 button:focus {outline: none !important;}
-#contenido {margin: 5.8em 0 0 0;}
+#contenido {
+	margin: 5.8em 0 0 0;
+	overflow: hidden;
+}
 
 /* GENERICOS ___________________________________ */
 #cnPromos, #cnServicios, 
@@ -241,7 +244,6 @@ button:focus {outline: none !important;}
 		.imgDato {width: 2em;}
 		.imgDato img {width: 100%; height: 100%;}
 	}
-	
 	#titulo {margin: 4em 0 0 0; text-align: center;}
 	#subtit {
 		@include marMinMax(0 auto, 10em, 21em);
@@ -256,7 +258,6 @@ button:focus {outline: none !important;}
 		#cnDato p {font-size: 1.2em!important;}
 	}
 	h1, h2, p {color: $grisOscuro;}
-	
 	#cnForm {
 		@include marMinMax(0 auto, 31em, 35em);
 		#frmcolbut {margin: 1em 0 0 0;}
@@ -278,8 +279,8 @@ button:focus {outline: none !important;}
 	background-color: $violIntermed;
 	text-align: center;
 	color: white;
-	
-	.col-md {margin: 0 1em;}
+	overflow: hidden;
+	.col-md {padding: 0 1em;}
 	p {font-size: 0.8em;}
 	a {
 		text-decoration: none;
@@ -415,8 +416,8 @@ button:focus {outline: none !important;}
 	h2 {font-size: 1.9em !important;}
 	p {font-size: .9em;}
 	.ir-arriba {
-		bottom: 2.7em;
-		right: 0.4em;
+		bottom: 3.3em;
+		right: 1.7em;
 		width: 2.3em;
 		height: 2.3em;
 	}
@@ -443,7 +444,6 @@ button:focus {outline: none !important;}
 		#pr {margin: .6em 0 0 0; padding: .6em 0;}
 		#ul {margin: 0 0 .6em 0; padding: .6em 0;}
 	}
-	#cnCarr {margin-top: 3.75em;}
 	#cnPromos #elempromos #imgpromos {
 		@include marMinMax(0 auto, 20em, 100%);
 		padding: 0 1em;
@@ -497,7 +497,6 @@ button:focus {outline: none !important;}
 		#cnCarr {
 			height: calc(100vh - 1em);
 			padding: 5em 2em 2em 2em;
-			margin-top: 3.1em;
 			#rowcarr {
 				margin: 0 auto 1.5em auto;
 			}
@@ -513,7 +512,7 @@ button:focus {outline: none !important;}
 	}
 	.ir-arriba {
 		bottom: 3em;
-		right: 1.8em;
+		right: .8em;
 		width: 2.5em;
 		height: 2.5em;
 	}
@@ -580,7 +579,7 @@ button:focus {outline: none !important;}
 		}
 	}
 	#cnFooter {
-		padding: .9em 0 0.5em;
+		padding: .9em 0 0.5em 0;
 		p {font-size: 0.7em;}
 		img {
 			width: 90px;
