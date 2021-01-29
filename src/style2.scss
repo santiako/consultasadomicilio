@@ -58,6 +58,17 @@ body {overflow-x: hidden;}
 }
 
 /* BARRA DE NAVEGACION _________________________________ */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 997;
+	display: none;
+}
 .navbar {
 	background-color: white !important;
 	padding: 1em 0;
@@ -501,8 +512,8 @@ button:focus {outline: none !important;}
 		}	
 	}
 	.ir-arriba {
-		bottom: 2.7em;
-		right: 0.5em;
+		bottom: 3em;
+		right: 1.8em;
 		width: 2.5em;
 		height: 2.5em;
 	}
@@ -513,6 +524,9 @@ button:focus {outline: none !important;}
 		height: 1.3em;
 	}
 	#navb {
+		.collapse.show .nav-overlay {
+			display: block;
+		}
 		.navbar-toggler {font-size: 1.3em;}
 		.nav-link {padding: .5em 0;}
 		#pr {margin: .5em 0 0 0; padding: .5em 0;}

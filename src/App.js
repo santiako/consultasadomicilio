@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Fade from 'react-reveal/Fade'
 import './style2.scss'
 
@@ -22,10 +22,22 @@ import icn_mail from './Assets/imagenes/icn_mail.png'
 import logoDF from './Assets/imagenes/Logo-web-white.png'
 
 function App() {
+const [menuOpen, setMenuOpen] = useState(false)
+
+const wSize = useWindowSize()
+// Cuando cambia de estado el menú, prende o apaga el overlay
+const handleNavToggler = () => {
+    // Si el tamaño de la ventana es < 768 togglea el overlay
+    if (wSize.width < 768) {
+        setMenuOpen(!menuOpen)
+    }
+}
+
 return (
     <div className="container-fluid">
+        <div className='nav-overlay' style={{ display: menuOpen ? 'block' : 'none' }}></div>
         <div id="cnBarraNav">
-            <Barranav />
+            <Barranav onMenuToggle={ handleNavToggler } />
         </div>
         <div id="contenido">
             <div id="homeSlide">
@@ -48,13 +60,45 @@ return (
 )
 }
 
+// Obtiene el tamaño de la ventana con Hooks
+function useWindowSize() {
+    const [windowSize, setWindowSize] = useState({
+      width: undefined,
+      height: undefined,
+    });
+  
+    useEffect(() => {
+      // Handler to call on window resize
+      function handleResize() {
+        // Set window width/height to state
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+      
+      // Add event listener
+      window.addEventListener("resize", handleResize);
+      
+      // Call handler right away so state gets updated with initial window size
+      handleResize();
+      
+      // Remove event listener on cleanup
+      return () => window.removeEventListener("resize", handleResize);
+    }, []); // Empty array ensures that effect is only run on mount
+
+    return windowSize;
+}
+
 function Barranav(props) {
+
 return(
 <nav className="navbar navbar-expand-md fixed-top bg-light navbar-light" id="navbar">
     <div className="logo">
         <a className="navbar-brand" href="#" id="navbarbrand"><img src={logo} alt="Consultas a domicilio" /></a>
     </div>
-<button className="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navb">
+<button className="navbar-toggler navbar-toggler-left" onClick={props.onMenuToggle} type="button"
+    data-toggle="collapse" data-target="#navb">
 <span className="navbar-toggler-icon"></span>
 </button>
     <div className="navbar-collapse collapse justify-content-end" id="navb">
@@ -63,24 +107,28 @@ return(
             <NavbarTgl
                 firslst={1}
                 href="#promos"
+                navClick={props.onMenuToggle}
                 text="Promociones" />
             </li>
             <li className="nav-item">
             <NavbarTgl
                 firslst={0}
                 href="#servicios"
+                navClick={props.onMenuToggle}
                 text="Servicios" />
             </li>
             <li className="nav-item">
             <NavbarTgl
                 firslst={0}
                 href="#acerca"
+                navClick={props.onMenuToggle}
                 text="Acerca" />
             </li>
             <li className="nav-item">
             <NavbarTgl
                 firslst={2}
                 href="#contacto"
+                navClick={props.onMenuToggle}
                 text="Contacto" />
             </li>
         </ul>
@@ -90,7 +138,7 @@ return(
 }
 
 class NavbarTgl extends React.Component {
-    
+
 constructor(props) {
     super(props)
     this.state = { width: 0, height: 0 }
@@ -108,7 +156,7 @@ componentWillUnmount() {
 
 updateWinDim() {
   this.setState({ width: window.innerWidth, 
-                 height: window.innerHeight })
+    height: window.innerHeight })
 }
 
 render() {
@@ -120,6 +168,7 @@ render() {
                 disp={1}
                 index={this.props.firslst}
                 href={this.props.href}
+                navClick={this.props.navClick}
                 text={this.props.text} />
         )
     } else { // DESKTOP
@@ -128,6 +177,7 @@ render() {
                 disp={0}
                 index={this.props.firslst}
                 href={this.props.href}
+                navClick={this.props.navClick}
                 text={this.props.text} />
         )
     }
@@ -137,16 +187,16 @@ render() {
 function RndNavbar(props) {
 
 if (props.disp === 0) { // DESKTOP
-    return <a className="nav-link" href={props.href}>{props.text}</a>
+    return <a className="nav-link" href={props.href} onClick={props.navClick}>{props.text}</a>
 } else { // TABLET
 if (props.index === 1) { //primer item
-    return <span className="navbar-toggler" data-toggle="collapse" data-target="#navb"><a className="nav-link" id="pr" href={props.href}>{props.text}</a></span>
-        
+    return <span className="navbar-toggler" data-toggle="collapse" data-target="#navb"><a className="nav-link" id="pr" href={props.href} onClick={props.navClick}>{props.text}</a></span>
+
 } else if (props.index === 0) { //item intermedio
-    return <span className="navbar-toggler" data-toggle="collapse" data-target="#navb"><a className="nav-link" href={props.href}>{props.text}</a></span>
+    return <span className="navbar-toggler" data-toggle="collapse" data-target="#navb"><a className="nav-link" href={props.href} onClick={props.navClick}>{props.text}</a></span>
     
 } else if (props.index === 2) { //último item
-    return <span className="navbar-toggler" data-toggle="collapse" data-target="#navb"><a className="nav-link" id="ul" href={props.href}>{props.text}</a></span>
+    return <span className="navbar-toggler" data-toggle="collapse" data-target="#navb"><a className="nav-link" id="ul" href={props.href} onClick={props.navClick}>{props.text}</a></span>
 }
 }
 }
