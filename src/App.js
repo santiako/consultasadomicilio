@@ -95,7 +95,7 @@ function Barranav(props) {
 return(
 <nav className="navbar navbar-expand-md fixed-top bg-light navbar-light" id="navbar">
     <div className="logo">
-        <a className="navbar-brand" href="#" id="navbarbrand"><img src={logo} alt="Consultas a domicilio" /></a>
+        <a className="navbar-brand" href="/" id="navbarbrand"><img src={logo} alt="Consultas a domicilio" /></a>
     </div>
 <button className="navbar-toggler navbar-toggler-left" onClick={props.onMenuToggle} type="button"
     data-toggle="collapse" data-target="#navb">
@@ -716,7 +716,7 @@ return(
         <div id="cnFooter">
             <div className="row">
             <div className="col-md">
-            <p>© Copyright 2021 Consultas a domicilio • Todos los derechos reservados • Diseño: <a href="http://www.dragonflystudio.com.ar" target="_blank"><img src={logoDF} alt="Dragonfly studio" /></a></p>
+            <p>© Copyright 2021 Consultas a domicilio • Todos los derechos reservados • Diseño: <a href="http://www.dragonflystudio.com.ar" target="_blank" rel="noopener noreferrer"><img src={logoDF} alt="Dragonfly studio" /></a></p>
             </div>
             </div>
         </div>
